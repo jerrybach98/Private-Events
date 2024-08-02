@@ -1,0 +1,15 @@
+<%= form_with model: @event do |form| %>
+  <%= form.label :title, "Title:" %>
+  <%= form.text_field :title, value:"Title" %><br><br>
+
+  <%= form.label :date, "Date" %>
+  <%= form.date :date %><br><br>
+
+  <%= form.label :location, "location:" %>
+  <%= form.text_area :location, placeholder:"Location" %><br><br>
+
+  <%= form.label :Description, "Description:" %>
+  <%= form.text_area :Description, placeholder:"Description" %><br><br>
+
+  <%= form.submit "Submit" %>
+<% end %>
