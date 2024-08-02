@@ -1,2 +1,13 @@
-<h1>Users#home</h1>
-<p>Find me in app/views/users/home.html.erb</p>
+<h1>My Events:</h1>
+<% if user_signed_in? %> 
+  <% @user.each do |event| %>
+    <h2><%= event.title %></h2>
+    <p><%= event.date %></p>
+    <p><%= event.location %></p>
+    <p><%= event.description %></p>
+  <% end %>
+<% else %>
+  <%= button_to "Sign in", new_user_session_path %> 
+<% end %>
+
+

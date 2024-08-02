@@ -11,7 +11,7 @@ class EventsController < ApplicationController
 
   def create
     # Creates even through user
-    @event = current_user.events.new(post_params)
+    @event = current_user.events.build(event_params)
 
       if @event.save
           redirect_to root_url
@@ -22,7 +22,7 @@ class EventsController < ApplicationController
 
   private
 
-  def post_params
-    params.require(:event).permit(:title,:body)
+  def event_params
+    params.require(:event).permit(:title,:date,:location,:description)
   end
 end
