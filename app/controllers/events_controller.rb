@@ -14,10 +14,15 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
 
       if @event.save
-          redirect_to root_url
+          flash[:success] = "Great! Your event has been created!"
+          redirect_to event_path(@event.id)
       else
           render :new, status: :unprocessable_entity
       end
+  end
+
+  def show
+    @event = Event.find(params[:id])
   end
 
   private
