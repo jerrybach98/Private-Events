@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    # Creates even through user
+    # Creates event through user
     @event = current_user.events.build(event_params)
 
       if @event.save

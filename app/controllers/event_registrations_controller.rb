@@ -1,4 +1,4 @@
-class RegistrationsController < ApplicationController
+class EventRegistrationsController < ApplicationController
   before_action :require_login
 
   def update
@@ -7,5 +7,4 @@ class RegistrationsController < ApplicationController
     flash[:notice] = "You signed up!"
     redirect_to event_path(@event)
   end
-
 end
