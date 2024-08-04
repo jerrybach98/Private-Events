@@ -4,7 +4,6 @@ class CreateRegistrations < ActiveRecord::Migration[7.1]
       t.references :user, foreign_key: true
       t.references :event, foreign_key: true
       t.timestamps
-      t.timestamps
     end
   end
 end
