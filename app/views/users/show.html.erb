@@ -1,11 +1,22 @@
 <h1>My Events:</h1>
+
 <% if user_signed_in? %> 
-  <% @user.each do |event| %>
+  <% @user.where('date > ?', DateTime.now).each do |event| %>
     <h3><%="- " + event.title %></h3>
     <p><%= event.date %></p>
     <p><%= event.location %></p>
     <p><%= event.description %></p>
   <% end %>
+ 
+ <h2>Past Events:</h2>
+  <% @user.where('date < ?', DateTime.now).each do |event| %>
+    <h3><%="- " + event.title %></h3>
+    <p><%= event.date %></p>
+    <p><%= event.location %></p>
+    <p><%= event.description %></p>
+  <% end %>
+
+
 <% else %>
   <%= button_to "Sign in", new_user_session_path %> 
 <% end %>
