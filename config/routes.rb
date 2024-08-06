@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'registrations/update'
   get 'users/home'
   get 'users/index'
-  devise_for :users
+  devise_for :users, controllers: {registrations: 'users/registrations'}
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :events
   resources :users

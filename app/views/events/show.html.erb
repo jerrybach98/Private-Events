@@ -3,12 +3,12 @@
 <p><%="Location: " + @event.location %></p>
 <p><%="Description: " + @event.description %></p>
 
-<%= button_to "Going", event_registration_path(@event), method: :patch %> 
+<%= button_to "Going", event_registration_path(event_id: @event.id), method: :patch %>
 <p class="flash-notice"><%= flash[:notice] %></p>
 
 <h3><%= "Attendees:" %></h2>
 <ul>
   <% @attendees.each do |attendee| %>
-    <li><%= attendee.name %></li>
+    <li><%= attendee.username %></li>
   <% end %>
 </ul>
